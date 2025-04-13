@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet"/>
+    <style>
+    .t
+    {
+    min-height:30px;
+    text-align:center;
+    padding-top:3px;
+    }
+    .ic
+    {
+    color:#365ff4;
+    border:1px solid #365ff4;
+    height:20px;
+    width:20px;
+    padding:1px;
+    border-radius:2px;
+    }
+    .ic:hover
+    {
+    background:#365ff4;
+    color:white;
+    transition:all ease 1s;
+    transform:rotate(360deg);
+    }
+    .header1
+    {
+    min-height:55px;
+    }
+    .menu
+    {
+    min-height:45px;
+    background:#365ff4;
+    }
+    #menu ul li a
+    {
+    color:white;
+    font-size:17px;
+    }
+    .newproduct
+    {
+    min-height:500px;
+    }
+    .services
+    {
+    min-height:300px;
+    }
+    .ufooter
+    {
+    min-height:300px;
+    background:#365ff4;
+    }
+    .bfooter
+    {
+    min-height:40px;
+    margin-top:1px;
+    background:#365ff4;
+    }
+    .offer
+    {
+    min-height:400px;
+    }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row t bg-light border-bottom">
+        <div class="col-sm-4 border-end">
+            <i class="fa fa-phone ic"></i> 9125604422
+        </div>
+        <div class="col-sm-4 border-end">
+            Welcome To FavCart India Pvt. Ltd.
+        </div>
+        <div class="col-sm-4">
+            <i class="fa fa-facebook ic"></i>
+            <i class="fa fa-youtube ic"></i>
+            <i class="fa fa-twitter ic"></i>
+            <i class="fa fa-whatsapp ic" title="9125604422"></i>
+        </div>
+    </div>
+    <div class="row header1 py-2">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 fs-3">
+            Fav<b style="color:#365ff4;">Cart India <i class="fa fa-shopping-cart"></i></b>
+        </div>
+        <div class="col-sm-6">
+            <a href="/user/cart/">
+                <center>
+                    <b class="btn btn-outline-danger">
+                        <i class="fa fa-shopping-cart fs-4  "></i>{{noofitemsincart}}
+                    </b>
+                </center>
+            </a>
+        </div>
+        <div class="col-sm-2 fs-5">
+            {% if request.session.user %}
+            {{ request.session.user}}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row menu">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 ps-5">
+            <!-- start -->
+
+            <nav class="navbar navbar-expand-lg navbar-light" id="menu">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/user/home/"><i
+                                        class="fa fa-home"></i> Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/product/"><i class="fa fa-product-hunt "></i>
+                                    Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/myorders/"><i class="fa fa-first-order"></i> My
+                                    Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/about/"><i class="fa fa-user"></i> About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/contactus/"><i class="fa fa-phone "></i> Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/myprofile/"><i class="fa fa-user-circle-o"></i> My
+                                    Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/signup/"><i class="fa fa-users"></i> Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/signin/"><i class="fa fa-sign-in"></i> Sign In</a>
+                            </li>
+                            {% if request.session.user %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/logout/"><i class="fa fa-sign-in"></i> Logout</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- end menu -->
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+    <div class="row content py-5 " style="min-height:550px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 offer my-2 bg-light p-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <b>01.</b>
+                    <div class="fs-2">DIgital Watches</div>
+                    <p>the ability to record time elapsed and distance traveled, digital watches make it easy to track your workouts. Whether you run every
+                        day or spend hours in the gym, your digital watch can track your progress and help you set goals to keep improving. Some digital watches
+                        can also monitor your heart rate.</p>
+                    <b>02.</b>
+                    <div class="fs-2 mt-3">Digital watches works</div>
+                    <p>Tiny quartz crystals inside the digital watch vibrate at a steady rate when an electric current from a battery is applied. A silicon chip picks up the vibrations
+                        and turns them into regular pulses. The pulses are displayed as numbers on the liquid crystal display (LCD) on the watch face.</p>
+                </div>
+                <div class="col-sm-4">
+                    <center>
+                        <img src="{% static 'images/product.jpeg'%}" class="img-fluid"/>
+                    </center>
+                </div>
+                <div class="col-sm-4">
+                    <b>03.</b>
+                    <div class="fs-2">Makes a watch digital</div>
+                    <p>Electronic watches require electricity as a power source, and some mechanical movements and hybrid electronic-mechanical movements also require electricity.
+                        Usually, the electricity is provided by a replaceable battery.</p>
+                    <b>04.</b>
+                    <div class="fs-2 mt-3">Digital Watches are Better</div>
+                    <p>Digital watches are cost-effective than analog timepieces. There is more resistance in the structure, design and architecture of a digital watch. Digital timepieces
+                        can be powered and operated by solar energy without requiring batteries. Athletes can benefit great from using a digital watch.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row services">
+        <div class="row">
+            <div class="h2 text-center">Our <b style="color:#365ff4;">Services <i class="fa fa-wrench"></i></b></div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 bg-light my-4">
+                <div class="row">
+                    <div class="col-sm-4 p-5">
+                        <b class="text-center h4">Free Shopping on Discounted Price<i class="fa fa-shopping-cart fs-2"></i></b><br/>
+                        <p>This shopping is online shopping in discounted price and all products are good if any products are damage then you return easily.</p>
+
+                    </div>
+                    <div class="col-sm-4 p-5">
+                        <b class="text-center h4">Delivery On Time <i class="fa fa-truck fs-2"></i></b><br/>
+                        <p>If you purchase any product then products is deliver on right time on right place.</p>
+                    </div>
+                    <div class="col-sm-4 p-5">
+                        <b class="text-center h4">Secure Payment <i class="fa fa-lock fs-2"></i></b>
+                        <p> Paysenz isn't just a payment gateway, we have also built an integrated system for handling the intersection of data, money and your customer within your online shopping </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-1"></div>
+
+        </div>
+        <div class="row ufooter py-2 text-light">
+
+            <div class="col-sm-4 mt-3 my-1">
+                <div class="fs-2  py-2 "> Customer Care</div>
+                <b> Contect Us </b><br/><b> FAQs </b><br/><b> Return & Exchanges </b><br/><b> Damaged or Defected
+                items </b><br/>
+                <b> Cancelling or Changing an order </b><br/><b> Terms of Service </b><br/><b> Privacy Policy </b>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <div class="fs-2  py-2 "> Contact Address</div>
+                <p><b>FavCart India Pvt. Ltd. Gorakhpur Behind Government Girls Polytechnic Gorakhpur </b></p>
+                <br/>
+                <b><i class="fa fa-phone ic" style="color:#ff9800;"></i> 9125604422</b><br/>
+                <b><i class="fa fa-envelope ic" style="color:#ff9800;"></i> favcart@gimal.com</b>
+            </div>
+            <div class="col-sm-4 mt-3">
+                <div class="fs-2 py-2">Fav<b style="color:#ff9800;">Cart India <i
+                        class="fa fa-shopping-cart"></i></b><br/>
+                </div>
+                <p><b>One among the online shopping portals for Watches is </b><b style="color:#ff9800;">FavCart India
+                    Pvt.
+                    Ltd. Gorakhpur.</b><b>one-stop shop for a wide range of products as well as services.</b></p>
+                <div class="fs-2  py-2 "> Stay Connected</div>
+                <i class="fa fa-facebook fs-4" style="color:#ff9800;"></i>
+                <i class="fa fa-youtube fs-4" style="color:#ff9800;"></i>
+                <i class="fa fa-twitter fs-4" style="color:#ff9800;"></i>
+                <i class="fa fa-whatsapp fs-4" style="color:#ff9800;"></i>
+            </div>
+        </div>
+
+        <div class="row bfooter text-light  text-center py-2" style="background:#0a2faf">
+            <div class="col-sm-6">
+                Develop By :<b style="color:#ff9800;">Pratibha Yadav</b>
+            </div>
+            <div class="col-sm-6" style="color:#ff9800;">
+                <b> &copy; FavCart India Pvt. Ltd.</b>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

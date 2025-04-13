@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+</style>
+<div class="row">
+    <div class="h2 text-center">Sign <b class="text-primary">Up <i class="fa fa-users"></i></b></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 p-5 bg-light">
+        <form method="post" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            Name <input type="text" placeholder="Enter Your Name.." required class="form-control" name="name"/>
+            Mobile No <input type="text" placeholder="Enter Your Mobile No.." required class="form-control" name="mobile"/>
+            Email <input type="email" placeholder="Enter Your Email.." required class="form-control" name="email"/>
+            Password<input type="password" placeholder="Enter Your Password.." required class="form-control" name="passwd"/>
+            Gender<input type="text" placeholder="Enter Your Gender.." required class="form-control" name="gender"/>
+            Profile Picture<input type="file" required class="form-control" name="fu"/>
+            Address<textarea class="form-control" name="address" placeholder="Enter Your Address.." required></textarea>
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}

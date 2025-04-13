@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="row">
+<div class="h2 text-center py-3">My <b class="text-primary"> Profile <i class="fa fa-user-circle-o"></i></b></div>
+<div class="col-sm-3"></div>
+<div class="col-sm-6 bg-light p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            {% if profile %}
+            {% for x in profile %}
+           <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{x.ppic}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title h2">{{x.name}}</h5>
+          <p class="card-text">
+              <b>Mobile : </b>{{x.mobile}}</p>
+              <b>Email : </b>{{x.email}}</p>
+              <b>Password : </b>{{x.passwd}}</p>
+              <b>Gender : </b>{{x.gender}}</p>
+              <b>Address : </b>{{x.address}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="col-sm-12">
+            <form method="post" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            Name <input type="text" placeholder="Enter Your Name.." required class="form-control" name="name" value="{{x.name}}"/>
+            Mobile No <input type="text" placeholder="Enter Your Mobile No.." required class="form-control" name="mobile" value="{{x.mobile}}"/>
+            Password<input type="password" placeholder="Enter Your Password.." required class="form-control" name="passwd" value="{{x.passwd}}"/>
+            Gender<input type="text" placeholder="Enter Your Gender.." required class="form-control" name="gender" value="{{x.gender}}"/>
+            Profile Picture<input type="file" required class="form-control" name="fu" value="{{x.ppic}}"/>
+            Address<textarea class="form-control" name="address"   placeholder="Enter Your Address.." required></textarea>
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </form>
+        </div>
+         {% endfor%}
+            {% endif%}
+    </div>
+</div>
+<div class="col-sm-3"></div>
+
+
+</div>
+{% endblock %}

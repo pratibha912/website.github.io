@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{%load static%}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+
+</style>
+<div class="row">
+<div class="h1 text-center">Sign <b class="text-primary">In <i class="fa fa-sign-in"></i></b></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12 login bg-light p-4 my-5">
+              <form method="post" autocomplete="off">
+                  {% csrf_token %}
+                  Email
+                  <input type="email" name="email" placeholder="Enter Your Email.." class="form-control">
+                  Password
+                  <input type="password" name="password" placeholder="Enter Your Password.." class="form-control">
+                  <input type="submit" value="Login" class="btn btn-primary mt-3">
+              </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}
